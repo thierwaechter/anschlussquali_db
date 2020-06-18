@@ -1,8 +1,8 @@
-
+image:
+  file: .gitpod.dockerfile
+  
 ports:
-    - port: 3000
-      onOpen: open-preview
-    - port: 3306
-      onOpen: ignore
+- port: 8080
+  onOpen: open-preview
 
     - command: python3 app.py
