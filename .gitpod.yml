@@ -1,9 +1,9 @@
 image:
-  file: .gitpod.dockerfile
+   file: .gitpod.dockerfile
   
 ports:
-- port: 8000
-  onOpen: open-preview
+   - port: 8000
+   onOpen: open-preview
 
 tasks:
-    - command: python3 run.py
+   - command: python3 run.py
