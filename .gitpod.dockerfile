@@ -1,10 +1,15 @@
-FROM python:latest
+FROM python:3.7-alpine
 
 RUN apt-get update -y
-COPY . /app
-WORKDIR /app
+ENV FLASK_APP run.py
+ENV FLASK_RUN_HOST 0.0.0.0
+
+COPY requirements.txt requirements.txt
+
 RUN pip install -r requirements.txt
+
+COPY . .
 
 ENTRYPOINT ["python"]
 
-CMD ["run.py"]
+CMD ["flask", "run"]
