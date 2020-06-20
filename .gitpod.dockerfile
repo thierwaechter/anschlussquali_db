@@ -1,4 +1,4 @@
-FROM python:lastest
+FROM python:latest
 
 RUN apt-get update -y
 ENV FLASK_APP run.py
