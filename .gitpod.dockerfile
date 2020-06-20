@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:lastest
 
 RUN apt-get update -y
 ENV FLASK_APP run.py
