@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Start.html</title>
-</head>
-<body>
-    <h1>{{ name }}</h1>
+{% extends "layouts/main.html" %}
 
-    {% for item in items %}
-        <p>{{ item }}</p>
-    {% endfor %}
-</body>
-</html>
+{% block content %}
+    <h1>Die start.html sagt: Der Name ist: {{ name }} </h1>
+{% endblock %}

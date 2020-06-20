@@ -1,5 +1,5 @@
 # coding=utf-8
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/")
@@ -10,8 +10,10 @@ def hello():
 
 @app.route("/test")
 def f123467890():
-    paragraph = "<p>Hallo Welt</p>"
-    return "Hello Test!" + paragraph
+    name = request.args.get("name")
+    age = request.args.get("age")
+    return render_template("test.html", name=name, age=age)
+
 
 # These two lines should always be at the end of your app.py file.
 if __name__ == '__main__':
