@@ -9,5 +9,4 @@ RUN pip install -r requirements.txt
 
 ENTRYPOINT ["python"]
 
-CMD ["python2, "app.py"]
-#  python3 manage.py runserver 0.0.0.0:8080
+CMD ["/usr/local/bin/python", "/workspace/MyFlask/app.py"]
