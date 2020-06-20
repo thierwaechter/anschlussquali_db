@@ -7,6 +7,6 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python"]
+#ENTRYPOINT ["python"]
 
-CMD ["/usr/local/bin/python", "/workspace/MyFlask/app.py"]
+#CMD ["app.py"]
