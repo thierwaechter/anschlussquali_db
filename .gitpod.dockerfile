@@ -2,8 +2,7 @@ FROM python:latest
 
 RUN apt-get update -y
 
-COPY . /app
-WORKDIR /app
+WORKDIR /MyFlask
 
 RUN pip install -r requirements.txt
 
