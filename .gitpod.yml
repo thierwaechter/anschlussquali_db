@@ -6,4 +6,4 @@ ports:
   onOpen: open-preview
 
 tasks:
-    - command: python3 app.py
+    - command: python3 run.py
