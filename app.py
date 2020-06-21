@@ -2,17 +2,46 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+class Item():
+    def __init__(self, name, amount):
+        self.name = name
+        self.amount = amount
+
 @app.route("/")
 def hello():
-    items = ["Apfel", "Birne", "Banane"]
+    items = [
+        Item("Apfel", 5),
+        Item("Computer", 1),
+        Item("Birne", 4)
+    ]
 
-    return render_template("start.html", name="Max Mustermann", items=items)
+    person = ("Hans", "Zimmermann")
+
+    return render_template("start.html", person=person, items=items)
 
 @app.route("/test")
 def f123467890():
     name = request.args.get("name")
     age = request.args.get("age")
     return render_template("test.html", name=name, age=age)
+
+@app.route("/currency")
+
+def waerungsrechner():
+    d = {
+        "EUR": 1.06,
+        "GPB": 0.85
+    }
+
+    chf = request.args.get("chf")
+    if chf == None:
+        chf = 0
+    else: 
+        chf = float(chf)
+    eur = chf * d.get("EUR")
+    gpb = chf * d.get("GPB")    
+    
+    return render_template("currency.html", chf=chf, eur=eur, gpb=gpb)
 
 
 # These two lines should always be at the end of your app.py file.
