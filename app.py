@@ -33,13 +33,10 @@ def waerungsrechner():
         "GPB": 0.85
     }
 
-    chf = request.args.get("chf")
-    if chf == None:
-        chf = 0
-    else: 
-        chf = float(chf)
-    eur = chf * d.get("EUR")
-    gpb = chf * d.get("GPB")    
+    chf = request.args.get("chf", 1)
+    chf = float(chf)
+    eur = round(chf * d.get("EUR"), 2)
+    gpb = round(chf * d.get("GPB"), 2)    
     
     return render_template("currency.html", chf=chf, eur=eur, gpb=gpb)
 
