@@ -1,1 +1,2 @@
-FROM gitpod/workspace-full:latest
+FROM continuumio/miniconda3:latest
+#FROM gitpod/workspace-full:latest
