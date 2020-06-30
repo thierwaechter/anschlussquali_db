@@ -1,15 +1,6 @@
 FROM gitpod/workspace-full:latest
 
-USER root
-RUN mkdir hahaha
-# Install util tools.
-RUN apt-get update \
- && apt-get install -y \
-  apt-utils \
-  sudo \
-  git \
-  less \
-  wget
+USER gitpod
 
 RUN mkdir -p /workspace/data \
     && chown -R gitpod:gitpod /workspace/data
@@ -27,10 +18,3 @@ RUN chown -R gitpod:gitpod /opt/conda \
     && chmod -R 777 /opt/conda \
     && chown -R gitpod:gitpod /home/gitpod/.conda \
     && chmod -R 777 /home/gitpod/.conda
-
-
-# Give back control
-USER root
-
-# Cleaning
-RUN apt-get clean
