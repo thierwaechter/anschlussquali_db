@@ -14,7 +14,7 @@ source ~/.bashrc
 export SHELL=/bin/bash
 
 #Update Conda
-conda update conda -y
+#conda update conda -y
 
 #Install conda packages die ich bauche :-)
 conda install -y -c conda-forge jupyterlab
