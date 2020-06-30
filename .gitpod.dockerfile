@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full:latest
 
-USER gitpod
+USER root
 
 RUN mkdir -p /workspace/data \
     && chown -R gitpod:gitpod /workspace/data
