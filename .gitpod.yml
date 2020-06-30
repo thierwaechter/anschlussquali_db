@@ -7,5 +7,5 @@ ports:
 - port: 8888
   onOpen: open-browser
 tasks:
-- command: pyenv global python=3.8 &&
+- command: pyenv global python=3.8.3 &&
            chmod +x envconfig.sh 
