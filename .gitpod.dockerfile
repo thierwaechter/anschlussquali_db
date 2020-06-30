@@ -1,6 +1,7 @@
 FROM gitpod/workspace-full:latest
 
 USER root
+RUN mkdir hahaha
 # Install util tools.
 RUN apt-get update \
  && apt-get install -y \
