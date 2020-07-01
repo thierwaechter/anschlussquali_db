@@ -1,9 +1,6 @@
 FROM gitpod/workspace-full:latest
 
 #USER root
-
-RUN mkdir -p /workspace/data \
-    && chown -R gitpod:gitpod /workspace/data
   
 RUN mkdir /home/gitpod/.conda
 # Install conda
@@ -18,3 +15,8 @@ RUN chown -R gitpod:gitpod /opt/conda \
     && chmod -R 777 /opt/conda \
     && chown -R gitpod:gitpod /home/gitpod/.conda \
     && chmod -R 777 /home/gitpod/.conda
+
+RUN mkdir -p /workspace/data \
+    && chown -R gitpod:gitpod /workspace/data
+    
+RUN conda install -y -c conda-forge jupyterlab
