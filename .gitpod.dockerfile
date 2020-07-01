@@ -14,7 +14,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
     export PATH=/workspace/conda/cthenv/bin:$PATH && \
     source ~/.bashrc && \
     export SHELL=/bin/bash && \
-    conda install -y -c conda-forge jupyterlab 
+    echo "conda install -y -c conda-forge jupyterlab" >> ~/.bashrc
     
 #    echo "conda activate base" >> ~/.bashrc
     
