@@ -10,7 +10,6 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     rm ~/miniconda.sh && \
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-#    echo "conda activate base" >> ~/.bashrc
     
 RUN chown -R gitpod:gitpod /opt/conda \
     && chmod -R 777 /opt/conda \
