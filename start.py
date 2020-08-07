@@ -12,5 +12,8 @@ abbringer_ort = 'Münsingen Bahnhof'
 max_umsteigezeit: 360 #in Sekunden
 
 auswertung = {}
-zubringer_zeiten = []
-abbringer_zeiten = []
+
+#liste_zubringer_zeiten = zubringer(linien_text_zubringer, zubringer_ort)
+liste_abbringer_zeiten = abbringer(linien_text_abbringer, abbringer_ort)
+#print(liste_zubringer_zeiten)
+print(liste_abbringer_zeiten)
