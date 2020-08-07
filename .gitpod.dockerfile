@@ -8,6 +8,4 @@ RUN pip install --upgrade pip
 # Update
 RUN apt-get update \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-ADD requirements.txt /application/
-RUN pip install -r /application/requirements.txt
 CMD [ "python" ]
