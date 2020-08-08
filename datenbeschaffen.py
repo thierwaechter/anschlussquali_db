@@ -9,12 +9,18 @@ def abbringer(linien_text_abbringer, abbringer_ort):
     
         for line in linereader:
             if line[7] == linien_text_abbringer and line[13] == abbringer_ort:
+                abfahrtszeit_str = line[17]
                 ab_prognose_str = line[18]
-                if ab_prognose_str:
-                    ab_prognose = datetime.strptime(ab_prognose_str, "%d.%m.%Y %H:%M:%S")
-                    abbringer_zeiten.append(ab_prognose)
+                if abfahrtszeit_str:                 #Prüft ob die Zelle leer ist
+                    abfahrtszeit = datetime.strptime(abfahrtszeit_str, "%d.%m.%Y %H:%M")
                 else:
-                    pass
+                    continue                               
+                if ab_prognose_str:                 #Prüft ob die Zelle leer ist
+                    ab_prognose = datetime.strptime(ab_prognose_str, "%d.%m.%Y %H:%M:%S")
+                else:
+                    continue
+                abbringer_tupel = (abfahrtszeit, ab_prognose)
+                abbringer_zeiten.append(abbringer_tupel)
         return abbringer_zeiten
 
 def zubringer(linien_text_zubringer, zubringer_ort):
@@ -25,10 +31,16 @@ def zubringer(linien_text_zubringer, zubringer_ort):
 
         for line in linereader:
             if line[7] == linien_text_zubringer and line[13] == zubringer_ort:
+                ankunftszeit_str = line[14]
                 an_prognose_str = line[15]
-                if an_prognose_str:
-                    an_prognose = datetime.strptime(an_prognose_str, "%d.%m.%Y %H:%M:%S")
-                    zubringer_zeiten.append(an_prognose)
+                if ankunftszeit_str:                 #Prüft ob die Zelle leer ist
+                    ankunftszeit = datetime.strptime(ankunftszeit_str, "%d.%m.%Y %H:%M")
                 else:
-                    pass
+                    continue                               
+                if an_prognose_str:                 #Prüft ob die Zelle leer ist
+                    an_prognose = datetime.strptime(an_prognose_str, "%d.%m.%Y %H:%M:%S")
+                else:
+                    continue
+                zubringer_tupel = (ankunftszeit, an_prognose)
+                zubringer_zeiten.append(zubringer_tupel)
         return zubringer_zeiten
