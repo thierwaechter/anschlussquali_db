@@ -1,8 +1,8 @@
 import csv
 from datetime import datetime, timedelta
 
-def abbringer(linien_text_abbringer, abbringer_ort):
-    print("Funktion Abbringer wird ausgeführt")
+def holeabbringerzeit(linien_text_abbringer, abbringer_ort):
+    print("Daten Abbringer werden gesucht")
     abbringer_zeiten = []
     with open('2020-07-31_istdaten.csv', newline='') as file:
         linereader = csv.reader(file, delimiter=';', quotechar='"')
@@ -23,8 +23,8 @@ def abbringer(linien_text_abbringer, abbringer_ort):
                 abbringer_zeiten.append(abbringer_tupel)
         return abbringer_zeiten
 
-def zubringer(linien_text_zubringer, zubringer_ort):
-    print("Funktion Zubringer wird ausgeführt")
+def holezubringerzeit(linien_text_zubringer, zubringer_ort):
+    print("Daten Zubringer werden gesucht")
     zubringer_zeiten = []
     with open('2020-07-31_istdaten.csv', newline='') as file:
         linereader = csv.reader(file, delimiter=';', quotechar='"')
@@ -41,6 +41,9 @@ def zubringer(linien_text_zubringer, zubringer_ort):
                     an_prognose = datetime.strptime(an_prognose_str, "%d.%m.%Y %H:%M:%S")
                 else:
                     continue
-                zubringer_tupel = (ankunftszeit, an_prognose)
-                zubringer_zeiten.append(zubringer_tupel)
+                if ankunftszeit_str:
+                    zubringer_tupel = (ankunftszeit, an_prognose)
+                    zubringer_zeiten.append(zubringer_tupel)
+                else: 
+                    continue
         return zubringer_zeiten
