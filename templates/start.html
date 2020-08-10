@@ -1,0 +1,9 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+    {% for item in items %}
+        <p>Du hast: {{ item.name }}, {{item.amount}} mal in deinem Warenkorb. </p>
+    {% endfor %}
+
+    Die Person lautet: {{ person[0] }}
+{% endblock %}
