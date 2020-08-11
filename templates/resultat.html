@@ -7,7 +7,7 @@
 
 <h2>Netz 2</h2>
 
-<p> Das Resultat lautet {{ resultat }}
+<p> Hier die Auswertung </p>
 
 <canvas id="myChart" width="400" height="100"></canvas>
 <script>
@@ -15,10 +15,10 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Blue'],
+        labels: ['{{ legend }}'],
         datasets: [{
-            label: 'Eingehaltene Anschlüsse',
-            data: [resultat],
+            label: '{{ labels }}',
+            data: [{{ values }}],
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)'
             ],
@@ -32,12 +32,13 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    suggestedMin: 0,
+                    suggestedMax: 100
                 }
             }]
         }
     }
-});
+})
 </script>
 
 {% endblock %}

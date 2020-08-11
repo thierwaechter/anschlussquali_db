@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from datenbeschaffen import holeabbringerzeit, holezubringerzeit
 
-auswertung_2870 = {'Anschluss 2870': []}
+auswertung_2870 = {}
 
 #Abbringer Angaben Anschluss 2870
 linien_text_abbringer = '160'  # wird in def holeabbringerzeit verwendet
@@ -38,14 +38,15 @@ def anschluss_2870():
                 an_temp_tabelle1.append(ankunftszeit)
         ankunft1 = ankunft1 + timedelta(hours=1)
 
-    # Erste Tagzeit anhand der temporären Tabelle Anschlüsse suchen und anzeigen
+    # Erste Tagzeit anhand der temporären Tabelle Anschlüsse suchen und Haupttabelle schreiben
     print('Erste Tagzeit auswerten und in die Auswertung schreiben')
     for an_zeit in an_temp_tabelle1:
         for ab_zeit in liste_abbringer_zeiten:
             if ab_zeit[1] >= an_zeit[1] + min_umsteigezeit and ab_zeit[1] <= an_zeit[1] + max_umsteigezeit1:
-                print('Anschluss OK ' + str(an_zeit[1]) + ' und ' + str(ab_zeit[1]) + ' passen.')
-                auswertung_2870['Anschluss 2870'].append(ab_zeit)
+                auswertung_2870[an_zeit] = ab_zeit
                 break      
+            else: 
+                auswertung_2870[an_zeit] = 0
 
     # Zweite Tagzeit abgleichen und in temporäre Tabelle schreiben
     print('Zweite Tagzeit abgleichen in Tabelle schreiben')
@@ -55,23 +56,22 @@ def anschluss_2870():
                 an_temp_tabelle2.append(ankunftszeit)
         ankunft2 = ankunft2 + timedelta(hours=1)
 
-    # Zweite Tagzeit anhand der temporären Tabelle Anschlüsse suchen und anzeigen
+    # Zweite Tagzeit anhand der temporären Tabelle Anschlüsse suchen und in Haupttabelle schreiben
     print('Zweite Tagzeit auswerten und in die Auswertung schreiben')
     for an_zeit in an_temp_tabelle2:
         for ab_zeit in liste_abbringer_zeiten:
             if ab_zeit[1] >= an_zeit[1] + min_umsteigezeit and ab_zeit[1] <= an_zeit[1] + max_umsteigezeit2:
-                print('Anschluss OK ' + str(an_zeit[1]) + ' und ' + str(ab_zeit[1]) + ' passen.')
-                auswertung_2870['Anschluss 2870'].append(ab_zeit)
-                break
+                auswertung_2870[an_zeit] = ab_zeit
+                break      
+            else: 
+                auswertung_2870[an_zeit] = 0
 
     # Prozentsatz gefundener Anschlüsse zu definierter Anschlüsse berechnen
+    # anzahl_def_anschluesse = len(an_temp_tabelle1) + len(an_temp_tabelle2)
+    #anzahl_OK_anschluesse = len(auswertung_2870['Anschluss 2870'])
+    #prozent_2870 = anzahl_OK_anschluesse / anzahl_def_anschluesse * 100
 
-    anzahl_def_anschluesse = len(an_temp_tabelle1) + len(an_temp_tabelle2)
-    anzahl_OK_anschluesse = len(auswertung_2870['Anschluss 2870'])
-    prozent_2870 = anzahl_OK_anschluesse / anzahl_def_anschluesse * 100
-
-    print('Von ' + str(anzahl_def_anschluesse) + ' wurden ' + str(anzahl_OK_anschluesse) + ' gehalten.')
-    print('Das sind ' + str(prozent_2870) + '%.')
-
-    #return auswertung_2870
-    return 4  #<-- Nur als Test! Unbedingt wieder löschen!
+    #print('Von ' + str(anzahl_def_anschluesse) + ' wurden ' + str(anzahl_OK_anschluesse) + ' gehalten.')
+    #print('Das sind ' + str(prozent_2870) + '%.')
+    print(auswertung_2870)
+    return auswertung_2870

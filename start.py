@@ -42,7 +42,6 @@ def waerungsrechner():
     
     return render_template("currency.html", chf=chf, eur=eur, gpb=gpb)
 
-#anschluss_2870()
 
 @app.route("/auswahl", methods=['GET', 'POST'])
 def anschlussauswahl():
@@ -52,8 +51,12 @@ def anschlussauswahl():
         for item in auswahl:
             if item == '2870':
                 resultat = anschluss_2870()
-                print(resultat)
-        return render_template("resultat.html", resultat=resultat)
+                legend = 'Auswertung xxx'
+                labels = item
+                total_anschluesse = len(resultat)
+                OK_anschluesse = 21 # ACHTUNG Wert noch berechnen!!!!!!
+                values = round(OK_anschluesse / total_anschluesse * 100, 1)
+            return render_template("resultat.html", values=values, labels=labels, legend=legend)
     return render_template("auswahl.html")
 
 @app.route('/resultat')
