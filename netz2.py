@@ -73,4 +73,5 @@ def anschluss_2870():
     print('Von ' + str(anzahl_def_anschluesse) + ' wurden ' + str(anzahl_OK_anschluesse) + ' gehalten.')
     print('Das sind ' + str(prozent_2870) + '%.')
 
-    return auswertung_2870
+    #return auswertung_2870
+    return 4  #<-- Nur als Test! Unbedingt wieder löschen!

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<h1>Resultat der Auswertung</h1>
+
+<p class="lead">Gemäss den Angaben von ODPCH ergeben sich folgende gehaltene Anschlüsse.</p>
+
+<h2>Netz 2</h2>
+
+<p> Das Resultat lautet {{ resultat }}
+
+<canvas id="myChart" width="400" height="100"></canvas>
+<script>
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Blue'],
+        datasets: [{
+            label: 'Eingehaltene Anschlüsse',
+            data: [resultat],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+{% endblock %}

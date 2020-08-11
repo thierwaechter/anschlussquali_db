@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h1>Willkommen zur Auswertung von Anschlüssen</h1>
+
+<p class="lead">Hier können Anschlussdefinitionen gemäss den BERNMOBIL Vorgaben ausgewählt 
+und anhand der ODPCH Datan ausgewertet werden. Bitte wähle die gewünschten Anschlussdefinitionen.</p>
+
+<h2>Netz 2</h2>
+<form method="POST" action= "/auswahl">
+  <div class="form-group">
+    <p class="font-weight-bold">Münsingen Bahnhof</p>
+    <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="anschluss" value="2870" id="anschluss">
+    <label class="form-check-label" for="anschluss">
+        2870 Mo. - Fr. L160 = Hin
+    </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="anschluss" value="2871" id="anschluss">
+    <label class="form-check-label" for="anschluss">
+        2871 Samstag L160 = Hin
+    </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="anschluss" value="2872" id="anschluss">
+    <label class="form-check-label" for="anschluss">
+        2872 Sonntag L160 = Hin
+    </label>
+    </div>
+    <div class="alert alert-warning mt-5 mb-5" role="alert">Zur Zeit können die Anschlüsse nur für einen Tag ausgewertet werden.
+    </div>
+    <input class="btn btn-primary" type="submit" value="Los geht's!">
+</div>
+</form>
+
+
+
+{% endblock %}

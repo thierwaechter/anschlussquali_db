@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<h1>Währunsrechner CHF - EUR oder GPB</h1>
+<p> Bitte gib den gewünschten Betrag in CHF ein. Du erfährst, wie viele EUR du erhälst.</p>
+   <form method="get">
+        <label for="chf">CHF</label>
+        <input type="text" name="chf" id="chf" value={{ chf }} />
+        <br />
+        <input class="button-primary" type="submit" value="senden" />
+    </form>
+
+<div class="container">
+    <div class="row">
+        <div class="six columns"><table class="u-full-width">
+                <thead>
+                    <tr>
+                    <th>EUR</th>
+                    <th>GPB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>{{ eur }}</td>
+                    <td>{{ gpb }}</td>
+                    </tr>
+                </tbody>
+             </table></div>
+        <div class="six columns"><p>Und hier steht noch ganz viel Text darüber, wie schwierig diese Aufgabe war und was ich nicht stundenlang daran herumprobiert habe.</p>
+            <p>Und das natürlich mehrmals, weil es ja eben so wichtig ist :-)</p></div>
+    </div>
+</div>
+
+
+{% endblock %}
