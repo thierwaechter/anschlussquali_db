@@ -1,6 +1,36 @@
 {% extends "layouts/main.html" %}
 
 {% block content %}
+<h1>Allgemeine Infos zum Projekt</h1>
+
+<p class="lead">Das Projekt ist noch in Aufbau. Hier eine Übersicht:</p>
+
+<h2>Geplant</h2>
+
+<p> CSV mit try und aufräumen öffenen - schliessen - ultrahoch!</p>
+<p> Eine weitere Seite mit den Daten als Tabelle - Hoch</p>
+<p> Auswertungen Export als PDF - Hoch</p>
+<p> Prozessbalken zur Info - Niedrig</p>
+<p> Website kleinere Anpassungen im Design - Niedrig</p>
+<p> Ev. Anbindung DB für Auswertugen > als einen Monat</p>
+
+<hr>
+<h2>Fehler</h2>
+
+<p> Bei der Auswertung fehlt das % Zeichen. Auswertung allgemein noch nicht richtig in Prozent.</p>
+
+<hr>
+<h2>Versionsübersicht</h2>
+
+<p> 0.1 - Beta - Mit Objekten, Anschluss 2870, 2871, 2872 und 1260 funktionieren </p>
+<p> 0.01 - Pre Alpha - ohne Objekte </p>
+
+<hr>
+
+ <p> Test Content</p>
+
+
+
     {% for item in items %}
         <p>Du hast: {{ item.name }}, {{item.amount}} mal in deinem Warenkorb. </p>
     {% endfor %}

@@ -1,6 +1,6 @@
 # coding=utf-8
 from flask import Flask, render_template, request, url_for
-from netz2 import anschluss_2870
+from netz2 import anschluss
 
 app = Flask(__name__)
 
@@ -47,15 +47,13 @@ def waerungsrechner():
 def anschlussauswahl():
     if request.method == 'POST':
         auswahl = request.form.getlist("anschluss")
-        print(auswahl)
         for item in auswahl:
-            if item == '2870':
-                resultat = anschluss_2870()
-                legend = 'Auswertung xxx'
-                labels = item
-                total_anschluesse = len(resultat)
-                OK_anschluesse = 21 # ACHTUNG Wert noch berechnen!!!!!!
-                values = round(OK_anschluesse / total_anschluesse * 100, 1)
+            resultat = anschluss(item)
+            legend = 'Auswertung xxx'
+            labels = item
+            total_anschluesse = len(resultat)
+            OK_anschluesse = 21 # ACHTUNG Wert noch berechnen!!!!!!
+            values = total_anschluesse
             return render_template("resultat.html", values=values, labels=labels, legend=legend)
     return render_template("auswahl.html")
 
@@ -63,6 +61,12 @@ def anschlussauswahl():
 def anschlussresultat(resultat):
     pass
     return render_template("resultat.html")
+
+
+@app.route('/liste')
+def zeigeliste():
+    pass
+    return render_template("liste.html")
 
 # These two lines should always be at the end of your app.py file.
 if __name__ == '__main__':
