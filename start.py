@@ -4,14 +4,15 @@ from flask_sqlalchemy import SQLAlchemy
 from work import Anschlussdaten, anschluss_2870, anschluss_1260
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost/mydatabase'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost/anschlussquali'
 db = SQLAlchemy(app)
 
 class Zubringer(db.Model):
     __tablename__ = 'zubringer'
     id = db.Column('id', db.Integer, primary_key=True)
-    linien_id = db.Column('linien_id', db.string(50))
-    haltestellen_name = db.Column('haltestellen_name', db.string(50))
+    linien_text = db.Column('linien_text', db.String(50))
+    haltestellen_name = db.Column('haltestellen_name', db.String(50))
 
 class Item():
     def __init__(self, name, amount):
