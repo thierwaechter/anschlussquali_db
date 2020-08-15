@@ -1,4 +1,4 @@
-FROM python:latest
+FROM gitpod/workspace-full:latest
 RUN mkdir /application
 WORKDIR "/application"
 # Upgrade pip
