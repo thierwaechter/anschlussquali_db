@@ -1,5 +1,7 @@
 FROM gitpod/workspace-mysql
 
+USER Root
+
 RUN mkdir /application
 WORKDIR "/application"
 # Upgrade pip
