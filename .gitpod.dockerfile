@@ -2,7 +2,8 @@ FROM gitpod/workspace-full:latest
 
 USER root
 
-RUN mkdir /application
+RUN mkdir -p /workspace/application \
+    && chown -R gitpod:gitpod /workspace/application
 WORKDIR "/application"
 # Upgrade pip
 RUN pip install --upgrade pip
