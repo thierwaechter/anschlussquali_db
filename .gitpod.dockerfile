@@ -1,4 +1,7 @@
 FROM gitpod/workspace-full:latest
+
+USER root
+
 RUN mkdir /application
 WORKDIR "/application"
 # Upgrade pip
@@ -11,8 +14,6 @@ COPY . /application
 RUN pip install -r requirements.txt
 
 # Installiere MySQL - Skript von Gitpod.io
-USER root
-
 RUN apt-get update \
  && apt-get install -y mysql-server \
  && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* \
