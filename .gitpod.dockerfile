@@ -1,3 +1,5 @@
+USER gitpod
+
 FROM gitpod/workspace-mysql
 
 FROM python:3.6
