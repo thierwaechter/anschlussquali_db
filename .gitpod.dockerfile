@@ -1,15 +1,16 @@
 FROM gitpod/workspace-mysql
 
-USER Root
+RUN sudo apt-get update \
+ && sudo apt-get install -y \
+    tool \
+ && sudo rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /application
+RUN sudo mkdir /application
 WORKDIR "/application"
 # Upgrade pip
-RUN pip install --upgrade pip
-# Update
-RUN apt-get update \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* 
+RUN sudo pip install --upgrade pip
+
 # Installere Requirements
-COPY . /application
-RUN pip install -r requirements.txt
+COPY sudo . /application
+RUN sudo pip install -r requirements.txt
 CMD [ "python" ]
