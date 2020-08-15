@@ -2,19 +2,7 @@ FROM gitpod/workspace-full:latest
 
 USER root
 
-RUN mkdir -p /workspace/application \
-    && chown -R gitpod:gitpod /workspace/application
-WORKDIR "/application"
-# Upgrade pip
-RUN pip install --upgrade pip
-# Update
-RUN apt-get update \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-# Installiere Requirements
-COPY . /application
-RUN pip install -r requirements.txt
-
-# Installiere MySQL - Skript von Gitpod.io
+# Install MySQL
 RUN apt-get update \
  && apt-get install -y mysql-server \
  && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* \
@@ -33,4 +21,4 @@ USER gitpod
 
 RUN echo "/etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
 
-CMD [ "python" ]
+
