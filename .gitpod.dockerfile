@@ -1,8 +1,7 @@
-USER gitpod
-
 FROM gitpod/workspace-mysql
 
-FROM python:3.6
+USER gitpod
+
 RUN mkdir /application
 WORKDIR "/application"
 # Upgrade pip
