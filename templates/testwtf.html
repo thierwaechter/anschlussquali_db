@@ -1,0 +1,22 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h1>WTF Test :-)</h1>
+
+<form action="" method="post">
+    <p>
+    {{form.zubringer.label}} <br>
+    {{form.zubringer(sitze=50)}}
+    </p>
+    <p>
+    {{form.abbringer.label}} <br>
+    {{form.abbringer(sitze=50)}}
+    </p>
+    <p>{{form.submit()}}
+</form>
+
+<p> {{ zubringer }} und {{ abbringer }}
+
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h1>Anschlüsse erfassen</h1>
+
+<p class="lead">Hier können weitere Anschlüsse in die Datenbank erfasst werden.</p>
+
+<h2>Zubringer erfassen</h2>
+<form method="POST" action= "/erfassen">
+        <label for="an_linien_text">Zubringer linien_text</label>
+        <input type="text" name="an_linien_text" id="an_linien_text" value={{ an_linien_text }} />
+        <br />
+        <label for="an_haltestellen_name">Zubringer haltestellen_name</label>
+        <input type="text" name="an_haltestellen_name" id="an_haltestellen_name" value={{ an_haltestellen_name }} />
+        <br />
+        <input class="button-primary" name="Zubringer" type="submit" value="Zubringer" />
+</form>   
+
+   <form method="POST">
+        <label for="chf">CHF</label>
+        <input type="text" name="chf" id="chf" value={{ chf }} />
+        <br />
+        <input class="button-primary" type="submit" value="senden" />
+    </form>
+
+
+<h2>Abbringer erfassen</h2>
+<form method="POST" action= "/erfassen">
+  <div class="form-group">
+        <label for="ab_linien_text">Abbringer linien_text</label>
+        <input type="text" name="ab_linien_text" id="ab_linien_text" value={{ ab_linien_text }} />
+        <br />
+        <label for="ab_haltestellen_name">Abbringer haltestellen_name</label>
+        <input type="text" name="ab_haltestellen_name" id="ab_haltestellen_name" value={{ ab_haltestellen_name }} />
+        <br />
+        <input class="btn btn-primary" type="submit" value="Los geht's!", , name="Abbringer">
+    </div>
+</form>      
+
+
+<p> Bitte nenne, wenn es mehr als eine Zeit pro Anschlussdefinition gibt, diese mit z. B. 2870a für xx:01:xx gilt und 2870b für xx:31xx.</p>
+<h2>Anschlussnummer</h2>
+<form method="POST" action= "/erfassen">
+  <div class="form-group">
+        <label for="bezeichnung">Anschlussdefinition</label>
+        <input type="text" name="bezeichnung" id="bezeichnung" value={{ bezeichnung }} />
+        <br />
+        <label for="ankunft">Ankunftszeit (gemäss Fahrplan)</label>
+        <input type="text" name="ankunft" id="ankunft" value={{ ankunft }} />
+        <br />
+        <label for="abfahrt">Abfahrtszeit (Gemäss Fahrplan)</label>
+        <input type="text" name="abfahrt" id="abfahrt" value={{ ankunft }} />
+        <br />
+        <label for="min_umsteigezeit">Minimale Umsteigezeit</label>
+        <input type="text" name="min_umsteigezeit" id="min_umsteigezeit" value={{ min_umsteigezeit }} />
+        <br />
+        <label for="max_umsteigezeit">Maximale Umsteigezeit</label>
+        <input type="text" name="max_umsteigezeit" id="max_umsteigezeit" value={{ max_umsteigezeit }} />
+        <br />
+        <label for="anzahl">Anzahl Durchläufe</label>
+        <input type="text" name="anzahl" id="anzahl" value={{ anzahl }} />
+        <br />                                
+        <input class="btn btn-primary" type="submit" value="Los geht's!", name="Anschlussnummer">
+    </div>
+</form>        
+
+{% endblock %}
+
+
